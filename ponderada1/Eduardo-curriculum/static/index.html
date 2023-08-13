@@ -1,0 +1,298 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Eduardo Porto</title>
+    <link rel="stylesheet"  href="styles.css" />
+
+</head>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  html {
+    height: 100%;  
+  }
+  
+  body {
+    min-height: 100%;  
+    background: #eee;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    color: #222;
+    font-size: 14px;
+    line-height: 26px;
+    padding-bottom: 50px;
+  }
+  
+  .container {
+    max-width: 700px;   
+    background: #fff;
+    margin: 0px auto 0px; 
+    box-shadow: 1px 1px 2px #DAD7D7;
+    border-radius: 3px;  
+    padding: 40px;
+    margin-top: 50px;
+  }
+  
+  .header {
+    margin-bottom: 30px;
+    
+    .full-name {
+      font-size: 40px;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+    
+    .first-name {
+      font-weight: 700;
+    }
+    
+    .last-name {
+      font-weight: 700;
+    }
+    
+    .contact-info {
+      margin-bottom: 20px;
+    }
+    
+    .email ,
+    .phone {
+      color: #999;
+      font-weight: 300;
+    } 
+    
+    .separator {
+      height: 10px;
+      display: inline-block;
+      border-left: 2px solid #999;
+      margin: 0px 10px;
+    }
+    
+    .position {
+      font-weight: bold;
+      display: inline-block;
+      margin-right: 10px;
+      text-decoration: underline;
+    }
+  }
+  
+  
+  .details {
+    line-height: 20px;
+    
+    .section {
+      margin-bottom: 40px;  
+    }
+    
+    .section:last-of-type {
+      margin-bottom: 0px;  
+    }
+    
+    .section__title {
+      letter-spacing: 2px;
+      color: #54AFE4;
+      font-weight: bold;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+    
+    .section__list-item {
+      margin-bottom: 40px;
+    }
+    
+    .section__list-item:last-of-type {
+      margin-bottom: 0;
+    }
+    
+    .left ,
+    .right {
+      vertical-align: top;
+      display: inline-block;
+    }
+    
+    .left {
+      width: 60%;    
+    }
+    
+    .right {
+      tex-align: right;
+      width: 39%;    
+    }
+    
+    .name {
+      font-weight: bold;
+    }
+    
+    a {
+      text-decoration: none;
+      color: #000;
+      font-style: italic;
+    }
+    
+    a:hover {
+      text-decoration: underline;
+      color: #000;
+    }
+    
+    .skills {
+      
+    }
+      
+    .skills__item {
+      margin-bottom: 10px;  
+    }
+    
+    .skills__item .right {
+      input {
+        display: none;
+      }
+      
+      label {
+        display: inline-block;  
+        width: 20px;
+        height: 20px;
+        background: #C3DEF3;
+        border-radius: 20px;
+        margin-right: 3px;
+      }
+      
+      input:checked + label {
+        background: #79A9CE;
+      }
+    }
+  }
+</style>
+<body>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
+
+<div class="container">
+  <div class="header">
+    <div class="full-name">
+      <span class="first-name">Eduardo</span> 
+      <span class="last-name">França Porto</span>
+    </div>
+    <div class="contact-info">
+      <span class="email">Email: </span>
+      <span class="email-val">eduardo.porto@sou.inteli.edu.br</span>
+      <span class="separator"></span>
+      <span class="phone">Cel: </span>
+      <span class="phone-val">38 9 9992-6777</span>
+      <span class="separator"></span>
+      
+      <span class="phone">linkedin:</span> <span class="phone-val">https://www.linkedin.com/in/eduardo-franca-porto/</span>
+    </div>
+  </div>
+   <div class="details">
+    <div class="section">
+      <div class="section__title">Experiências</div>
+      <div class="section__list">
+        <div class="section__list-item">
+          <div class="left">
+            <div class="name">BTG PACTUAL</div>
+            <div class="duration">Jan 2023 </div>
+          </div>
+          <div class="right">
+            <div class="name">Summer job - Automation dev</div>
+            <div class="desc">Fui responsável por desenvolver um bot que automatizou uma planilha de controle interno
+                no setor de automação. Assim, diariamente é realizado um compilado de dados das
+                diversas bases institucionais e criado um relatório diário. Visando facilitar o
+                acompanhamento dos KPI’s por todo o time no Microsoft Teams .
+                </div>
+          </div>
+        </div>
+                <div class="section__list-item">
+          <div class="left">
+            <div class="name">BTG PACTUAL</div>
+            <div class="duration">Jul 2022 </div>
+          </div>
+          <div class="right">
+            <div class="name">Summer job - Automation dev</div>
+            <div class="desc">Ajudei a criar os processos iniciais para automatizar uma rotina de middle office do banco,
+                no qual o projeto teve continuação após o fim do meu estágio. Além disso, ajudei a fazer
+                migrações de sites de uso interno da Flask para Node com a refatoração completa e
+                implementação de melhorias em React.
+                </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="section">
+      <div class="section__title">Educação</div>
+      <div class="section__list">
+        <div class="section__list-item">
+          <div class="left">
+            <div class="name">INTELI - Instituto de tecnologia e liderança</div>
+            <div class="duration">Fev 2022 - Dez 2025</div>
+          </div>
+          <div class="right">
+            <div class="name">Engenharia da computação</div>
+          </div>
+        </div>
+      </div>
+      
+  </div>
+     <div class="section">
+      <div class="section__title">Experiências Adicionais</div> 
+       <div class="section__list">
+         <div class="section__list-item">
+           <div class="name">Hackathon Inteli Blockchain</div>
+           <div class="text">Vencedor na categoria da Titanium Asset Managment, criando uma plataforma online que
+            reúne várias notícias sobre o mundo crypto, fazendo a análise de sentimentos desses
+            dados e ajudando investidores a tomar decisão sobre investir ou não em um ativo.
+            </div>
+         </div>
+         
+         <div class="section__list-item">
+                    <div class="name">Constellation Challenge – Constellation Asset Management</div>
+           <div class="text">Semi finalista do desafio constellation, junto com mais dois membros fizemos uma análise
+            setorial e uma tese de investimento sobre a Arrezo&Co empresa do varejo de luxo.
+            O material desenvolvido está no seguinte
+             <a href="https://drive.google.com/drive/folders/1fecwWTPbZYkNpeADMvQYjGamXltjgeZe">link .</a>
+           </div>
+         </div>
+       </div>
+    </div>
+     <div class="section">
+       <div class="section__title">Habilidades</div>
+       <div class="skills">
+         <div class="skills__item">
+           <div class="left"><div class="name">
+             Javascript
+             </div></div>
+             <div class="right"><div class="name">
+                Python</div>
+              </div>
+         </div>
+         
+       </div>
+       <div class="skills__item">
+           <div class="left"><div class="name">
+             Excel</div>
+           </div>
+           <div class="right"><div class="name">
+            Inglês avançado</div>
+          </div>
+         </div>
+         
+       </div>
+     <div class="section">
+     <div class="section__title">
+       Interesses 
+       </div>
+       <div class="section__list">
+         <div class="section__list-item">
+            Análise de empresas, machine learning, fundos quantitativos e literatura.
+          </div>
+       </div>
+     </div>
+     </div>
+  </div>
+</div>
+</body>
+</html>
