@@ -4,7 +4,7 @@ import React, { useState } from "react";
 function Form(props) {
   
   // Aqui é onde vai ficar salvo o hook contendo o input 
-  const [name, setName] = useState("Use hooks!");
+  const [name, setName] = useState("Insira uma tarefa ");
 
   // Função que anota as mudanças no input field 
   function handleChange(e) {
@@ -22,7 +22,7 @@ function Form(props) {
       <form onSubmit={handleSubmit}>
         <h2 className="label-wrapper">
           <label htmlFor="new-todo-input" className="label__lg">
-            What needs to be done?
+            Tarefas a serem feitas ?
           </label>
         </h2>
         <input
@@ -35,7 +35,7 @@ function Form(props) {
           onChange={handleChange}
         />
         <button type="submit" className="btn btn__primary btn__lg">
-          Add
+          Adicionar
         </button>
       </form>
     );
