@@ -69,6 +69,14 @@ body {
     line-height: 1.31579;
   }
 }
+
+.todo-box {
+  border: 2px solid #000000; /* Set the desired border color and width */
+  padding: 10px; /* Add padding for spacing */
+  border-radius: 4px; /* Add rounded corners */
+  margin-bottom: 10px; /* Add margin to separate boxes */
+}
+
 /*END RESETS*/
 /* GLOBAL STYLES */
 .form-group > input[type="text"] {

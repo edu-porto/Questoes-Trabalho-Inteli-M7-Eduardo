@@ -50,16 +50,10 @@ export default function Todo(props) {
   // Template para visualizar as tarefas 
   const viewTemplate = (
     <div className="stack-small">
-      <div className="c-cb">
-        <input
-          id={props.id}
-          type="checkbox"
-          defaultChecked={props.completed}
-          onChange={() => props.toggleTaskCompleted(props.id)}
-        />
-        <label className="todo-label" htmlFor={props.id}>
+      <div className="todo-box">
+        <h3 className="todo-label" htmlFor={props.id}>
           {props.name}
-        </label>
+        </h3>
       </div>
       <div className="btn-group">
         <button type="button"

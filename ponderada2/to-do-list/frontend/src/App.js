@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Todo from "./components/Todo";
 import FilterButton from "./components/FilterButton"
 import Form from "./components/Form"
 import { nanoid } from "nanoid";
-
+import axios from 'axios';
+import TaskList from './components/TaskList'
 
 
 // Constante que guarda os filtros das tasks 
@@ -14,7 +15,6 @@ const FILTER_MAP = {
 };
 const FILTER_NAMES = Object.keys(FILTER_MAP);
 
-
 function App(props){
 
   const [tasks, setTasks] = useState(props.tasks);
@@ -22,29 +22,34 @@ function App(props){
   const [filter, setFilter] = useState("Todas");
 
 
-  // Mapping de todas as características de uma tarefa 
-  const taskList = tasks.filter(FILTER_MAP[filter])
+
+  // Rota para fazer um get  
+  useEffect(() => {
+    fetch("http://localhost:8000/api/get/tasks/").then(response => 
+    response.json()).then(
+      data =>{
+        const newDada = data.map((item) => item.task)
+        setTasks(data);
+      })
+      .catch(error => {
+        console.log(setTasks)
+      });
+  }, []);
+
+
+// Mapping de todas as características de uma tarefa 
+const taskList = tasks.filter(FILTER_MAP[filter])
 .map((task) => (
     <Todo
       id={task.id}
-      name={task.name}
-      completed={task.completed}
-      key={task.id}
+      name={task.task}
       toggleTaskCompleted={toggleTaskCompleted}
       deleteTask={deleteTask}
       editTask={editTask}
     />
   ));
 
-  const filterList = FILTER_NAMES.map((name) => (
-      <FilterButton 
-      key={name} 
-      name={name} 
-      isPressed={name===filter}
-      setFilter={setFilter}
-      />
-    ));
-    
+
 
 
   // Função que checa se uma tarefa foi completada ou não 
@@ -75,6 +80,18 @@ function App(props){
   function deleteTask(id) {
     const remainingTasks = tasks.filter((task) => id !== task.id);
     setTasks(remainingTasks);
+    axios.delete(`http://localhost:8000/api/tasks/delete/${id}`)
+    .then(response => {
+      if (response.status === 200) {
+        console.log('Task deleted successfully.');
+        // You might want to update your tasks state here if needed.
+      } else {
+        console.error('Failed to delete task.');
+      }
+    })
+    .catch(error => {
+      console.error('Error deleting task:', error);
+    });
   }
 
   // Função que edita as tarefas 
@@ -85,7 +102,23 @@ function App(props){
       }
       return task;
     });
-    setTasks(editedTaskList)
+    // setTasks(editedTaskList)
+    axios.put(`http://localhost:8000/api/tasks/update/${id}/`, {
+      task: newName,
+    },
+    console.log(newName)
+    )
+      .then(response => {
+        if (response.status === 200) {
+          console.log('Task updated successfully.');
+          setTasks(editedTaskList);
+        } else {
+          console.error('Failed to update task.');
+        }
+      })
+      .catch(error => {
+        console.error('Error updating task:', error);
+      });
   }
 
   return (
@@ -93,8 +126,6 @@ function App(props){
       <h1>TO-DO-LIST</h1>
       <Form addTask={addTask}/>
       <div className="filters btn-group stack-exception">
-      {/* Aqui é onde está o filtro das tasks */}
-      {filterList}
       </div>
       <h2 id="list-heading">{headingText}</h2>
       <ul
@@ -103,6 +134,7 @@ function App(props){
         aria-labelledby="list-heading">
           {taskList}
       </ul>
+      <h3>Não se esqueça de recarregar a página para conferir as tarefas</h3>
     </div>
   );
 }

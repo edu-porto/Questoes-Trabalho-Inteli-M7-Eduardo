@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import axios from 'axios';
 
 
 function Form(props) {
   
   // Aqui é onde vai ficar salvo o hook contendo o input 
-  const [name, setName] = useState("Insira uma tarefa ");
+  const [name, setName] = useState("");
 
   // Função que anota as mudanças no input field 
   function handleChange(e) {
@@ -12,11 +13,35 @@ function Form(props) {
   }
 
   // Aqui que os dados saem do componente e vão para o componente app
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    props.addTask(name);
-    setName("")
-  }
+    try {
+      console.log('Sending data:', { task : name }); // Log the data before sending
+
+      const response = await axios.post(
+        'http://localhost:8000/api/create/tasks',
+        { task : name },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+
+      console.log('Response data:', response.data); // Log the response data
+
+      if (response.status === 200) {
+        const newTask = response.data;
+        setName(newTask.task); // Clear the input field
+      } else {
+        console.error('Failed to add task');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+
+
+    }
   
     return (
       <form onSubmit={handleSubmit}>

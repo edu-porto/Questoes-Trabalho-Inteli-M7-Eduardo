@@ -5,9 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 const DATA = [
-  { id: "todo-0", name: "Study", completed: true },
-  { id: "todo-1", name: "Work", completed: false },
-  { id: "todo-2", name: "Achieve", completed: false },
+  { id: "", name: "", completed: true },
 ];
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
