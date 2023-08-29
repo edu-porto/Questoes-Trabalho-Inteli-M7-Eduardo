@@ -2,7 +2,7 @@
 
 Nesta atividade foi feito uma aplicação web em react que é possível criar um to-do list com o CRUD completo.
 
-### **Arquitetura**
+### **Estrutura de pastas**
 
 A atividade está divida em três pastas :
 
@@ -27,5 +27,11 @@ Para o melhor entendimento das tecnologias utilizadas, irei as separar por local
   - React: Um dos frameworks web mais utilizados e que permite componentizar as páginas web.
 - Conteiners
   - A tecnologia de containers é proporcionada pelo Docker, permitindo criar instâncias e aumentando a escalabilidade do sistema.
+
+### **Arquitetura**
+
+O sistema utiliza a seguinte arquitetura
+
+`![Arquitetura_da_solucao](ponderada2/to-do-list/arquitetura_solucao.jpg)`
 
 ### **Como utilizar**

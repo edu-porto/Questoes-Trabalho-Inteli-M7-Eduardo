@@ -2,7 +2,8 @@ from typing import TYPE_CHECKING, List
 from fastapi import FastAPI, Depends, HTTPException, Body
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.encoders import jsonable_encoder
-import schemas as schemas
+from schemas import schemas
+from schemas import BaseTask, Task, CreateTask
 import sqlalchemy.orm as orm
 import services as services
 from models import UserSchema, UserLoginSchema
