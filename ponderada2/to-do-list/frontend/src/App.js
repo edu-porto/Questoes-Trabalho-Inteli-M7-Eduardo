@@ -102,7 +102,6 @@ const taskList = tasks.filter(FILTER_MAP[filter])
       }
       return task;
     });
-    // setTasks(editedTaskList)
     axios.put(`http://localhost:8000/api/tasks/update/${id}/`, {
       task: newName,
     },

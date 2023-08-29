@@ -1,14 +1,23 @@
 from typing import TYPE_CHECKING, List
-from fastapi import FastAPI, Depends, HTTPException
+from fastapi import FastAPI, Depends, HTTPException, Body
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.encoders import jsonable_encoder
 import schemas as schemas
 import sqlalchemy.orm as orm
 import services as services
+from models import UserSchema, UserLoginSchema
+from auth.jwt_handler import signJWT
+from auth.jwt_bearer import jwtBearer
 
 if TYPE_CHECKING:
     from sqlalchemy.orm import Session
 
 
+users = []
+default_user = { 
+    'user' : "teste",
+    'password': "teste123"
+}
 app = FastAPI()
 
 origins = [
@@ -25,8 +34,26 @@ app.add_middleware(
 )
 
 
+# Essa função tem o objetivo de checar se já existem os dados do login 
+def check_user(data: UserLoginSchema):
+    for user in users:
+        if user.user == data.user and user.password == data.password:
+            return True
+        return False
+
+# Nessa rota iremos fazer um login
+@app.post("/user/login_new", tags=["user"])
+def user_login_new(user: UserLoginSchema = Body(default=None)):
+    data = jsonable_encoder(user)
+    if default_user['user'] == data['user'] and default_user['password'] == data['password']:
+        return signJWT(user.user)
+    else:
+        return{
+            "Login inválido"
+        }
+
 # Rota que vai criar uma tarefa
-@app.post('/api/create/tasks/', response_model=schemas.Task)
+@app.post('/api/create/tasks/', response_model=schemas.Task, tags=["CRUD"])
 async def create_task(
     task:schemas.CreateTask, 
     db: orm.Session = Depends(services.get_db),
@@ -40,14 +67,15 @@ async def create_task(
 
 
 # Rota que vai fazer um get em todas tarefas
-@app.get("/api/get/tasks/", response_model= List[schemas.Task])
+@app.get("/api/get/tasks/", response_model= List[schemas.Task], tags=["CRUD"])
 async def get_all_tasks(
     db: orm.Session = Depends(services.get_db)):
 
     return await services.get_all_tasks(db=db)
 
+
 # Rota que vai fazer um get em uma tarefa
-@app.get("/api/task/{task_id}", response_model=schemas.Task)
+@app.get("/api/task/{task_id}", response_model=schemas.Task, tags=["CRUD"])
 async def get_task(
     task_id: int, db: orm.Session = Depends(services.get_db)
 ):
@@ -60,7 +88,7 @@ async def get_task(
 
 
 # Rota da api que aciona o serviço de deletar uma tarefa 
-@app.delete("/api/tasks/delete/{task_id}/")
+@app.delete("/api/tasks/delete/{task_id}/", tags=["CRUD"])
 async def delete_task(
     task_id:int, db : orm.Session = Depends(services.get_db)):
     task = await services.get_task(db=db, task_id=task_id)
@@ -72,7 +100,7 @@ async def delete_task(
     return "Deletado com sucesso "
 
 # Rota que atualiza uma tarefa 
-@app.put("/api/tasks/update/{task_id}/", response_model=schemas.Task)
+@app.put("/api/tasks/update/{task_id}/", response_model=schemas.Task, tags=["CRUD"])
 async def update_task(
     task_id: int,
     task_data: schemas.CreateTask,

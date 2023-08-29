@@ -1,0 +1,31 @@
+## **Atividade ponderada 2**
+
+Nesta atividade foi feito uma aplicação web em react que é possível criar um to-do list com o CRUD completo.
+
+### **Arquitetura**
+
+A atividade está divida em três pastas :
+
+- Backend
+  - Aqui está toda a estrutura do backend, tendo os arquivos .python para autenticação e rotas da api.
+- db
+  - Arquivo docker compose que cria uma instância do postgresql para ser utilizado como banco de dados relacional.
+- frontend
+  - Contém todas os arquivos em react e a página web.
+
+### **Tecnologias utilizadas**
+
+Para o melhor entendimento das tecnologias utilizadas, irei as separar por local de utilização e o motivo da escolha.
+
+- Backend
+  - FastAPI : É a tecnologia por trás  da API que permite a conexão entre banco de dados e frontend.
+  - SQLAlchemy : É a ORM utilizada para conectar com o DB
+  - JWT : Permite o úsuario logar de forma segura
+- Data Base
+  - PostgreeSQL : É o banco de dados relacional, opensource e muito otimizado comparado ao MySQL
+- Frontend
+  - React: Um dos frameworks web mais utilizados e que permite componentizar as páginas web.
+- Conteiners
+  - A tecnologia de containers é proporcionada pelo Docker, permitindo criar instâncias e aumentando a escalabilidade do sistema.
+
+### **Como utilizar**
