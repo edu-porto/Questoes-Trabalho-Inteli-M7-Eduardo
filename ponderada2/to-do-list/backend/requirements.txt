@@ -4,3 +4,4 @@ pydantic
 uvicorn
 PyJWT
 python-decouple
+psycopg2 

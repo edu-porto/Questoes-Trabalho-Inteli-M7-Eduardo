@@ -12,3 +12,20 @@ services:
     ports:
       - "5432:5432"
     container_name: banco-db
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql  
+
+  backend:
+    image: eduardoporto/backend:latest
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+
+  frontend:
+    image: eduardoporto/frontend-image:latest
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+

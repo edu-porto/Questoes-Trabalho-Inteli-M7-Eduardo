@@ -35,3 +35,23 @@ O sistema utiliza a seguinte arquitetura
 `![Arquitetura_da_solucao](ponderada2/to-do-list/arquitetura_solucao.jpg)`
 
 ### **Como utilizar**
+
+**Para utilizar basta utilizar os seguintes comandos**
+
+```
+cd " ponderada2\to-do-list\db"
+```
+
+E logo em seguida
+
+```
+docker-compose up
+```
+
+Para acessar a página basta entrar no link
+
+```
+http://localhost:3000/
+```
+
+E utilizar o login : teste e senha : "teste123"

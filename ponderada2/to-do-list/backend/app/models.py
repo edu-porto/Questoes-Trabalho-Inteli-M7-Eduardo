@@ -1,7 +1,7 @@
 import datetime as dt
 import sqlalchemy as sql
 from pydantic import BaseModel, Field
-import database as database
+import app.database as database
 
 #  Criando a classe que é usada para fazer a tabela
 class Contact(database.Base):
