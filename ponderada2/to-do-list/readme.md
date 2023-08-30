@@ -55,3 +55,11 @@ http://localhost:3000/
 ```
 
 E utilizar o login : teste e senha : "teste123"
+
+### **Imagens docker**
+
+A imagem do postgress foi a padrão que está no compose
+
+A imagem do backend pode ser acessada no seguinte link [https://hub.docker.com/r/eduardoporto/backend](https://hub.docker.com/r/eduardoporto/backend)
+
+A imagem do frontend pode ser acessada no seguinte link [https://hub.docker.com/r/eduardoporto/frontend-image](https://hub.docker.com/r/eduardoporto/frontend-image)
