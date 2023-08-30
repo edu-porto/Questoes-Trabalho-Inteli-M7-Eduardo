@@ -32,7 +32,7 @@ Para o melhor entendimento das tecnologias utilizadas, irei as separar por local
 
 O sistema utiliza a seguinte arquitetura
 
-`![Arquitetura_da_solucao](ponderada2/to-do-list/arquitetura_solucao.jpg)`
+`![Arquitetura_da_solucao]([ponderada2/to-do-list/arquitetura_solucao.jpg](https://drive.google.com/file/d/10O7VgVWQhQd4oPt3QJ8t_fCsX6JzA6Ce/view?usp=sharing))`
 
 ### **Como utilizar**
 
