@@ -1,27 +1,25 @@
-![Logo do Inteli](../assets/logo-inteli.png)
-
 # Atividade 3: Deploy de modelo de Machine Learning na Nuvem
 
 ### _**Introdução**_
 
 O objetivo desta atividade foi criar um modelo de machine learning que consiga prever a quantia mensal de views de algum canal no youtube e ser usado como uma api.
 
-O dataset pode ser encontrado no seguinte \[Global YouTube Statistics 2023 on Kaggle\](https://www.kaggle.com/datasets/nelgiriyewithana/global-youtube-statistics-2023)
+O dataset pode ser encontrado no seguinte [Global YouTube Statistics 2023 on Kaggle](https://www.kaggle.com/datasets/nelgiriyewithana/global-youtube-statistics-2023)
 
-Além disso, foram criadas imagens docker da api no seguinte link \[Docker Hub - Eduardo Porto\](https://hub.docker.com/r/eduardoporto/model)
+Além disso, foram criadas imagens docker da api no seguinte link [Docker Hub - Eduardo Porto](https://hub.docker.com/r/eduardoporto/model)
 
 ### _**Estrutura de pastas**_
 
 As pastas foram dividas de forma simples, visando facilitar a construção do Dockerfile e permitir encontrar tudo que foi desenvolvido de maneira fácil.
 
-\`\`\`  
+```  
 ├───api (api que foi gerada)  
 ├───dataset (dados utilizados para treinar o modelo)  
 ├───model ( modelo .pkl pronto para uso)  
 ├───notebook (notebook de desenvolvimento inicial)  
 ├───Dockerfile (arquivo Docker)
 
-\`\`\`
+```
 
 ### _**Escolha do modelo**_
 
