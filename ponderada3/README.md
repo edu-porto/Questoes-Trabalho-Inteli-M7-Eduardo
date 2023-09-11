@@ -12,14 +12,13 @@ Além disso, foram criadas imagens docker da api no seguinte link [Docker Hub - 
 
 As pastas foram dividas de forma simples, visando facilitar a construção do Dockerfile e permitir encontrar tudo que foi desenvolvido de maneira fácil.
 
-```  
 ├───api (api que foi gerada)  
 ├───dataset (dados utilizados para treinar o modelo)  
 ├───model ( modelo .pkl pronto para uso)  
 ├───notebook (notebook de desenvolvimento inicial)  
 ├───Dockerfile (arquivo Docker)
 
-```
+
 
 ### _**Escolha do modelo**_
 
