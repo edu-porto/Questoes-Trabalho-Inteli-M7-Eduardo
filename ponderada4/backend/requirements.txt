@@ -1,0 +1,9 @@
+sqlalchemy
+fastapi
+pydantic
+uvicorn
+PyJWT
+python-decouple
+psycopg2 
+scikit-learn
+catboost
