@@ -76,6 +76,32 @@ body {
   flex-direction: row;
 }
 
+.form-container {
+  display: flex;
+  flex-direction: row; /* Stack items vertically */
+  gap: 10px; /* Add a little margin between items */
+}
+
+/* Style for individual input fields */
+.form-container div {
+  display: flex;
+  align-items: center; /* Vertically center items */
+}
+
+/* Style for labels */
+.form-container label {
+  width: 150px; /* Adjust the label width as needed */
+  margin-right: 10px; /* Add space between label and input */
+}
+
+/* Style for input fields */
+.form-container input {
+  flex: 1; /* Take up remaining space */
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
 .todo-box {
   border: 2px solid #000000; /* Set the desired border color and width */
   padding: 10px; /* Add padding for spacing */

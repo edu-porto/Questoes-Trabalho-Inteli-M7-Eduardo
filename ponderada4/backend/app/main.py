@@ -96,19 +96,20 @@ async def how_to_use():
 async def predict(data : InputData):
     # O input do modelo precisa ser um data frame  então irei criar um dict e depois o df 
     users_input_model = {
-    'subscribers': [data.subscribers],
-    'video views': [data.video_views],
-    'category': [data.category],
-    'uploads': [data.uploads],
-    'Country': [data.Country],
-    'channel_type': [data.channel_type],
-    'video_views_rank': [data.video_views_rank],
-    'country_rank': [data.country_rank],
-    'channel_type_rank': [data.channel_type_rank],
-    'subscribers_for_last_30_days': [data.subscribers_for_last_30_days],
-    'created_year': [data.created_year],
-    'created_month': [data.created_month],
-    'created_date': [data.created_date],
+    'subscribers': [data.subscribers],#
+    'video views': [data.video_views],#
+    'category': [data.category],#
+    'uploads': [data.uploads],#
+    'Country': [data.Country],#
+    'channel_type': [data.channel_type],#
+    'video_views_rank': [data.video_views_rank],#
+    'country_rank': [data.country_rank],#
+    'channel_type_rank': [data.channel_type_rank],#
+    'subscribers_for_last_30_days': [data.subscribers_for_last_30_days],#
+    'created_year': [data.created_year],#
+    'created_month': [data.created_month],#
+    'created_date': [data.created_date],#
+    # Todos esses abaixos só dependem do país e não serão inputados 
     'Gross tertiary education enrollment (%)': [data.Gross_tertiary_education_enrollment],
     'Population': [data.Population],
     'Unemployment rate': [data.Unemployment_rate],
@@ -116,7 +117,9 @@ async def predict(data : InputData):
     'Latitude': [data.Latitude],
     'Longitude': [data.Longitude]}
 
+    print(data)
     input_dict = pd.DataFrame(users_input_model)
+    print(input_dict)
     prediction = model.predict(input_dict)
 
 
