@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
 import './index.css';
 
+
 import axios from "axios"
 function MyForm() {
   const [countryName, setCountryName] = useState();
@@ -528,9 +529,9 @@ function MyForm() {
 
       console.log(postData)
 
-      // Make a POST request using Axios
+      
       const response = await axios.post('http://localhost:8000/prediction/', postData);
-      document.getElementById('api-response').innerHTML = `API Response: ${JSON.stringify(response.data)}`;
+      document.getElementById('api-response').innerHTML = `Visualizações mensais: ${JSON.stringify(response.data['prediction'])}`;
       // Handle the response or any other logic here
       console.log('Data posted:', response.data);
     } catch (error) {
@@ -636,7 +637,7 @@ function MyForm() {
         placeholder="Enter a country name"
         value={countryName}
         onChange={(e) => setCountryName(e.target.value)}
-        onBlur={handleCountryChange} // You can also use a button or another event to trigger the data update
+        onBlur={handleCountryChange} 
       >
       <option value="">Select Option</option>
       <option value="Afghanistan">Afghanistan</option>
@@ -721,8 +722,9 @@ function MyForm() {
 
           </select>
         </div>
+        <h4>Data de criação do canal</h4>
         <div>
-        <label>Day</label>
+        <label>Dia</label>
           <input
             type="number"
             name="created_date"
@@ -731,7 +733,7 @@ function MyForm() {
           />
         </div>
         <div>
-        <label>Month</label>
+        <label>Mês</label>
           <input
             type="number"
             name="created_month"
@@ -740,7 +742,7 @@ function MyForm() {
           />
         </div>
         <div>
-        <label>Year</label>
+        <label>Ano</label>
           <input
             type="number"
             name="created_year"
@@ -761,6 +763,54 @@ function MyForm() {
 }
 
 
+function InfoDialog() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openDialog = () => {
+    setIsOpen(true);
+  };
+
+  const closeDialog = () => {
+    setIsOpen(false);
+  };
+
+  return (
+    <div>
+      <button onClick={openDialog}>Como utilizar a solução </button>
+
+      {isOpen && (
+        <div className="dialog-overlay">
+          <div className="dialog">
+            <h2>subscribers</h2>
+            <p>Aqui é o número de inscritos do canal</p>
+            <h2>video views</h2>
+            <p>Quantas views foram acumuladas no canal</p>
+            <h2>uploads</h2>
+            <p>Quantos vídeos foram feitos o upload</p>
+            <h2>video_views_rank</h2>
+            <p>Rank que ocupa das visualizações</p>
+            <h2>country_rank</h2>
+            <p>Rank do canal em relação ao país</p>
+            <h2>channel_type_rank</h2>
+            <p>Rank do canal em relação ao seu tipo de conteúdo</p>
+            <h2>subscribers_for_last_30_days</h2>
+            <p>Inscritos nos últimos dias</p>
+            <h2>category</h2>
+            <p>Categoria da maioria dos vídeos</p>
+            <h2>Country</h2>
+            <p>País que o canal atua</p>
+            <h2>channel_type</h2>
+            <p>Tipo de conteúdo do canal </p>
+
+
+            <button onClick={closeDialog}>Close</button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 function App(){
   const [post, setPost] = useState({
     title: '',
@@ -779,8 +829,7 @@ function App(){
       <br></br>
       <br></br>
       <br></br>
-      {/* <Country></Country> */}
-
+      <InfoDialog></InfoDialog>
       </div>
     </div>
   )

@@ -19,11 +19,12 @@ model = pickle.load(open(model_file_path, 'rb'))
 # Login seguro com JWT
 users = []
 default_user = { 
-    'user' : "teste",
-    'password': "teste123"
+    'user' : "admin",
+    'password': "admin123"
 }
 app = FastAPI()
 
+# IP da EC2 
 origins = [
     "http://localhost:3000",
     "localhost:3000"
