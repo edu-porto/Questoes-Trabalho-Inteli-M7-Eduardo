@@ -67,16 +67,16 @@ app.add_middleware(
 
 
 
-# Nessa rota iremos fazer um login
-@app.post("/user/login_new", tags=["user"])
-def user_login_new(user: UserLoginSchema = Body(default=None)):
-    data = jsonable_encoder(user)
-    if default_user['user'] == data['user'] and default_user['password'] == data['password']:
-        return signJWT(user.user)
-    else:
-        return{
-            "Login inválido"
-        }
+# # Nessa rota iremos fazer um login
+# @app.post("/user/login_new", tags=["user"])
+# def user_login_new(user: UserLoginSchema = Body(default=None)):
+#     data = jsonable_encoder(user)
+#     if default_user['user'] == data['user'] and default_user['password'] == data['password']:
+#         return signJWT(user.user)
+#     else:
+#         return{
+#             "Login inválido"
+#         }
     
 # Rota para checar a saude da api
 @app.get("/health")
