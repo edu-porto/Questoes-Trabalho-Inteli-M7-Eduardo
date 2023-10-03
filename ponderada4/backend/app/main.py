@@ -2,8 +2,8 @@ from fastapi import FastAPI, Depends, HTTPException, Body
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.encoders import jsonable_encoder
 # from .models import UserSchema, UserLoginSchema
-from .auth.jwt_handler import signJWT
-from .auth.jwt_bearer import jwtBearer
+from app.auth.jwt_handler import signJWT
+from app.auth.jwt_bearer import jwtBearer
 import pandas as pd
 import os
 import pickle
