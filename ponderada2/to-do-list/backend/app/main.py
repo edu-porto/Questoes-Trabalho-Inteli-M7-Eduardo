@@ -21,8 +21,8 @@ default_user = {
 app = FastAPI()
 
 origins = [
-    "http://localhost:3000",
-    "localhost:3000"
+    "http://54.146.235.203:3000",
+    "http://54.146.235.203:3000/"
 ]
 
 app.add_middleware(
