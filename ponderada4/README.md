@@ -1,15 +1,51 @@
-<img src="../assets/logo-inteli.png" alt="Logo do Inteli"/>
+![Logo do Inteli](../assets/logo-inteli.png)
 
 # Atividade 4: Construção de Dashboard para Visualização de Dados
 
-## Enunciado
+## Objetivo
 
-Esta atividade tem por objetivo realizar a integração das demais atividades desenvolvidas. Ela será o frontend de visualização de dados do modelo disponibilizado. Esta interface deverá consumir os dados disponibilizados da atividade ponderada 3. O acesso a este dashboard deverá acontecer mediante ao login do usuário, conforme desenvolvido na atividade ponderada 2.
+O objetivo desta atividade foi desenvolver uma api que retorna a predição mensal de views de um canal do youtube.
 
-## Padrão de qualidade
+De tal forma que o usúario insere as informações do canal e logo em seguida e retornado o valor de views mensais.
 
-***TODO***
+Além disso, também é implementado autenticação JWT
 
-## Instruções:
+## Como utilizar
 
-***TODO***
+Para executar localmente acesse a  pasta
+
+_**Executar backend**_
+
+cd "ponderada4\\backend\\app"
+
+python -m venv .
+
+cd scripts
+
+activate
+
+cd ..
+
+python -m pip install -r requirements.txt
+
+cd app
+
+uvicorn main:app --reload
+
+_**Executar frontend**_
+
+cd "ponderada4\\frontend"
+
+npm install
+
+npm start
+
+Pronto, agora basta acessar o http://localhost:3000/ e digitar o usuario "_admin"_ e senha _"admin123". Feito isso é só executar qualquer previsão de visualização mensal._
+
+## Imagem Docker
+
+O link para as imagens no dockerhub está dividido entre :
+
+frontend :
+
+api/backend :

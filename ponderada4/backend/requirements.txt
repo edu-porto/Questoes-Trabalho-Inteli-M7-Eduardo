@@ -4,6 +4,6 @@ pydantic
 uvicorn
 PyJWT
 python-decouple
-psycopg2 
+psycopg2-binary
 scikit-learn
 catboost
