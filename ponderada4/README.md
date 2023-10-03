@@ -1,5 +1,3 @@
-![Logo do Inteli](../assets/logo-inteli.png)
-
 # Atividade 4: Construção de Dashboard para Visualização de Dados
 
 ## Objetivo
