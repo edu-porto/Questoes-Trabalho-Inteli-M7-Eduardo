@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Depends, HTTPException, Body
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.encoders import jsonable_encoder
-from .models import UserSchema, UserLoginSchema
+# from .models import UserSchema, UserLoginSchema
 from .auth.jwt_handler import signJWT
 from .auth.jwt_bearer import jwtBearer
 import pandas as pd
@@ -9,6 +9,33 @@ import os
 import pickle
 from fastapi import FastAPI
 from pydantic import BaseModel
+
+import datetime as dt
+from pydantic import BaseModel, Field
+
+# Classe que contém o exemplo de usuario 
+class UserSchema(BaseModel):
+    user : str = Field(default=None)
+    password : str = Field(default=None)
+    class Config :
+        the_schema = {
+        "user_final": {
+            "user" : "teste",
+            "password" : "teste123"
+        }
+    }
+    
+# Classe que contém o exemplo de usuario 
+class UserLoginSchema(BaseModel):
+    user : str = Field(default=None)
+    password : str = Field(default=None)
+    class Config :
+        the_schema = {
+        "user_final": {
+            "user" : "teste",
+            "password" : "teste123"
+        }
+    }
 
 # Abrindo o modelo
 model_file_path = os.path.join(os.path.dirname(__file__), "model7.pkl")
