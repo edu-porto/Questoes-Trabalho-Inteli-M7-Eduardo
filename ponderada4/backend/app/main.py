@@ -51,18 +51,19 @@ default_user = {
 }
 app = FastAPI()
 
-# IP da EC2 
-origins = [
-    "http://172.31.84.165:3000",
-    "http://172.31.84.165:3000/"
-]
+# # IP da EC2 
+# origins = [
+#     "http://172.31.84.165:3000",
+#     "http://172.31.84.165:3000/"
+
+# ]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"],  # Use "*" to allow access from any origin
     allow_credentials=True,
-    allow_methods=['*'],
-    allow_headers=['*']
+    allow_methods=["*"],  # Allow all HTTP methods
+    allow_headers=["*"],  # Allow all headers
 )
 
 
