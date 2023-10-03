@@ -19,7 +19,7 @@ function LoginPage({ onLogin }) {
   const handleLogin = () => {
     // Perform login logic here
     // Assuming login is successful, call onLogin to switch to the App
-    axios.post("http://localhost:8000/user/login_new", {
+    axios.post("http://44.204.85.74/user/login_new", {
       user: username,
       password: password
     })
