@@ -1,9 +1,9 @@
 from fastapi import FastAPI, Depends, HTTPException, Body
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.encoders import jsonable_encoder
-from models import UserSchema, UserLoginSchema
-from auth.jwt_handler import signJWT
-from auth.jwt_bearer import jwtBearer
+# from models import UserSchema, UserLoginSchema
+# from auth.jwt_handler import signJWT
+# from auth.jwt_bearer import jwtBearer
 import pandas as pd
 import os
 import pickle
@@ -53,8 +53,8 @@ app = FastAPI()
 
 # IP da EC2 
 origins = [
-    "http://localhost:3000",
-    "localhost:3000"
+    "http://172.31.84.165:3000",
+    "http://172.31.84.165:3000/"
 ]
 
 app.add_middleware(
