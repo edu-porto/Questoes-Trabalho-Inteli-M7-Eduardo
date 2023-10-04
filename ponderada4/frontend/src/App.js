@@ -532,10 +532,8 @@ function MyForm() {
       
       const response = await axios.post('http://44.204.85.74/prediction/', postData);
       document.getElementById('api-response').innerHTML = `Visualizações mensais: ${JSON.stringify(response.data['prediction'])}`;
-      // Handle the response or any other logic here
       console.log('Data posted:', response.data);
     } catch (error) {
-      // Handle errors
       console.error('Error:', error);
     }
   };
